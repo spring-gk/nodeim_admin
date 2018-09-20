@@ -20,9 +20,9 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
             {type: "checkbox", fixed:"left", width:50},
             {field: 'aid', title: 'ID', width:60, align:"center"},
             {field: 'sys_id', title: '系统ID', width:100},
+            {field: 'title', title: '应用名称', align:'center'},
             {field: 'app_id', title: 'APP ID', align:'center',width:460},
             {field: 'app_secret', title: 'APP SECRET', align:'center',width:460},
-            {field: 'title', title: '应用名称', align:'center'},
             {field: 'is_queue_publish', title: '队列发布', align:'center', templet:function(d){
                 var checked = d.is_queue_publish == 1 ? "checked" : "";
                 return '<input type="checkbox" name="is_queue_publish" lay-filter="is_queue_publish" lay-skin="switch" lay-text="是|否" '+checked+'>'
