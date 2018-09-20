@@ -9,13 +9,9 @@ router.use(function timeLog(req, res, next) {
 });
 */
 router.get('/', function(req, res) {
-	//res.send("^_^ Hello ^_^");
-	res.render('admin')
+	res.send("^_^ Hello ^_^");
+	//res.render('admin')
 });
 
-router.get('/welcome', function(req, res) {
-	//res.send("^_^ Hello ^_^");
-	res.render('welcome')
-});
 
 module.exports = router;

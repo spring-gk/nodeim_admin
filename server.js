@@ -1,22 +1,26 @@
 var express = require('express'),
     app = express(),
     ejs = require('ejs'),
+    login = require('./app/controller/login'),
+    admin = require('./app/controller/admin'),
+    nodeapp = require('./app/controller/nodeapp'),
+    statistics = require('./app/controller/statistics'),
+    system = require('./app/controller/system'),
     app_config = require('./config');//配置文件
 
 /**************  web接口 ******************/
-var data={
-  name : 'webarn',
-  sex : '男',
-  content : '2222,可以更改'
-};
 
 app.get('/', function(req, res){
   //res.send("^_^ Hello ^_^");
-  res.render('login',data)
+  res.redirect('/login')
 });
 
 //外部接口
-//app.use('/api', api);
+app.use('/login', login);
+app.use('/admin', admin);
+app.use('/nodeapp', nodeapp);
+app.use('/statistics', statistics);
+app.use('/system', system);
 
 app.use('/static', express.static(__dirname + '/static'));
 app.set('views', './app/views');
