@@ -3,7 +3,7 @@
 var fs = require('fs'),
     common_func = require('./common'),
     server_ip = common_func.getIPAdress(), //server端IP 
-    app_config = require('../config');
+    app_config = require('../../config');
     
 //获取公用文件路径
 var getFilePathCommon = function()

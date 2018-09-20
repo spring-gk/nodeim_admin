@@ -1,6 +1,6 @@
 'use strict';
 var zookeeper = require('node-zookeeper-client'),
-    app_config = require('../config'),
+    app_config = require('../../config'),
     monitor_func = require('./monitor'),//monitor公用函数
     genericPool = require("generic-pool");
 

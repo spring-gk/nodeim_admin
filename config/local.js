@@ -7,10 +7,10 @@ var config = {
     port: 4000,         //服务端口号
     db_config: {
         'host': '127.0.0.1',
-        'port': 6379,
+        'port': 3306,
         'database': 'nodeim',
         'username': 'root',
-        'password': ''
+        'password': 'root'
     },
     zk_config:{
         'host':"127.0.0.1:2181",
