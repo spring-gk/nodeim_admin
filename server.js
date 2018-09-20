@@ -22,7 +22,7 @@ app.use('/nodeapp', nodeapp);
 app.use('/statistics', statistics);
 app.use('/system', system);
 
-app.use('/static', express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '/static'));
 app.set('views', './app/views');
 app.set('view engine','ejs');
 //监听端口，开启服务
