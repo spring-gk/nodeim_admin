@@ -8,33 +8,50 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
 
     //新闻列表
     var tableIns = table.render({
-        elem: '#newsList',
-        url : '../../json/newsList.json',
+        elem: '#nodeappList',
+        url : '/nodeapp/data',
         cellMinWidth : 95,
         page : true,
         height : "full-125",
-        limit : 20,
-        limits : [10,15,20,25],
-        id : "newsListTable",
+        limit : 10,
+        limits : [5,15,20,25],
+        id : "nodeappListTable",
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
-            {field: 'newsId', title: 'ID', width:60, align:"center"},
-            {field: 'newsName', title: '文章标题', width:350},
-            {field: 'newsAuthor', title: '发布者', align:'center'},
-            {field: 'newsStatus', title: '发布状态',  align:'center',templet:"#newsStatus"},
-            {field: 'newsLook', title: '浏览权限', align:'center'},
-            {field: 'newsTop', title: '是否置顶', align:'center', templet:function(d){
-                return '<input type="checkbox" name="newsTop" lay-filter="newsTop" lay-skin="switch" lay-text="是|否" '+d.newsTop+'>'
+            {field: 'aid', title: 'ID', width:60, align:"center"},
+            {field: 'sys_id', title: '系统ID', width:60},
+            {field: 'app_id', title: 'APP ID', align:'center',width:460},
+            {field: 'app_secret', title: 'APP SECRET', align:'center',width:460},
+            {field: 'title', title: '应用名称', align:'center'},
+            {field: 'is_queue_publish', title: '队列发布', align:'center', templet:function(d){
+                var checked = d.is_queue_publish == 1 ? "checked" : "";
+                return '<input type="checkbox" name="is_queue_publish" lay-filter="is_queue_publish" lay-skin="switch" lay-text="是|否" '+checked+'>'
             }},
-            {field: 'newsTime', title: '发布时间', align:'center', minWidth:110, templet:function(d){
-                return d.newsTime.substring(0,10);
+            {field: 'is_save_msg', title: '保存消息', align:'center', templet:function(d){
+                var checked = d.is_save_msg == 1 ? "checked" : "";
+                return '<input type="checkbox" name="is_save_msg" lay-filter="is_save_msg" lay-skin="switch" lay-text="是|否" '+checked+'>'
+            }},
+            {field: 'is_watch_quit', title: '监听会话', align:'center', templet:function(d){
+                var checked = d.is_watch_quit == 1 ? "checked" : "";
+                return '<input type="checkbox" name="is_watch_quit" lay-filter="is_watch_quit" lay-skin="switch" lay-text="是|否" '+checked+'>'
+            }},
+            {field: 'is_watch_delete', title: '监听删除', align:'center', templet:function(d){
+                var checked = d.is_watch_delete == 1 ? "checked" : "";
+                return '<input type="checkbox" name="is_watch_delete" lay-filter="is_watch_delete" lay-skin="switch" lay-text="是|否" '+checked+'>'
+            }},
+            {field: 'is_able', title: '是否可用', align:'center', templet:function(d){
+                var checked = d.is_able == 1 ? "checked" : "";
+                return '<input type="checkbox" name="is_able" lay-filter="is_able" lay-skin="switch" lay-text="是|否" '+checked+'>'
+            }},
+            {field: 'update_time', title: '更新时间', align:'center', templet:function(d){
+                return d.update_time.substring(0,16);
             }},
             {title: '操作', width:170, templet:'#newsListBar',fixed:"right",align:"center"}
         ]]
     });
 
     //是否置顶
-    form.on('switch(newsTop)', function(data){
+    form.on('switch(is_able)', function(data){
         var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
         setTimeout(function(){
             layer.close(index);
@@ -120,7 +137,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
     })
 
     //列表操作
-    table.on('tool(newsList)', function(obj){
+    table.on('tool(nodeappList)', function(obj){
         var layEvent = obj.event,
             data = obj.data;
 
