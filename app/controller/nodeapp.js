@@ -9,7 +9,7 @@ router.use(function timeLog(req, res, next) {
 });
 */
 router.get('/', function(req, res) {
-	res.render('test')
+	res.render('nodeapp')
 	//res.render('nodeapp');
 });
 
