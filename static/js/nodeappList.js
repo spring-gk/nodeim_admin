@@ -19,7 +19,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'aid', title: 'ID', width:60, align:"center"},
-            {field: 'sys_id', title: '系统ID', width:60},
+            {field: 'sys_id', title: '系统ID', width:100},
             {field: 'app_id', title: 'APP ID', align:'center',width:460},
             {field: 'app_secret', title: 'APP SECRET', align:'center',width:460},
             {field: 'title', title: '应用名称', align:'center'},
@@ -46,7 +46,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
             {field: 'update_time', title: '更新时间', align:'center', templet:function(d){
                 return d.update_time.substring(0,16);
             }},
-            {title: '操作', width:170, templet:'#newsListBar',fixed:"right",align:"center"}
+            {title: '操作', width:170, templet:'#nodeappListBar',fixed:"right",align:"center"}
         ]]
     });
 
