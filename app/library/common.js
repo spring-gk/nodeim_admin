@@ -78,9 +78,11 @@ var common_func = {
         }
 	},
 	trim: function(str){
+		//过滤空格
 		return str.replace(/(^\s*)|(\s*$)/g, "");
 	},
 	generateToken: function(){
+		//生成uuid token
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 		    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
 		    return v.toString(16);
