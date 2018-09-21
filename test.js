@@ -7,9 +7,12 @@ mysql_func.doSqlCmdAsync(sql).then(function(res){
 }).catch(function(err){
 	console.log(err);
 });*/
-var nodeapp_model = require('./app/model/nodeapp');
+/*var nodeapp_model = require('./app/model/nodeapp');
 nodeapp_model.getNodeAppListAsync(1,10).then(function(res){
 	console.log(res);
 }).catch(function(err){
 	console.log(err);
-});
+});*/
+
+var common_func = require('./app/library/common');
+console.log(common_func.generateToken());
