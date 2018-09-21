@@ -26,6 +26,7 @@ var login = function(username,password){
 		});		
 	});*/
 }
+
 //更新密码
 var updatePwd = function(username,password){
 	

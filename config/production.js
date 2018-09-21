@@ -12,6 +12,10 @@ var config = {
         'username': 'root',
         'password': ''
     },
+    redis_config: {     //redis配置
+        'host': '127.0.0.1',
+        'port': 6379
+    },
     zk_config:{
         'host':"127.0.0.1:2181",
         'app_list_path': "/nodeim.app_list"
