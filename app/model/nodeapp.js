@@ -1,5 +1,5 @@
 var mysql_func = require('../library/mysql');
-
+//获取分页列表
 var getNodeAppList = function(page,page_size){
 	var from = (page - 1) * page_size;
 	var to = page * page_size;
@@ -26,8 +26,33 @@ var getNodeAppList = function(page,page_size){
 		});		
 	});
 }
+//获取应用详细
+var getNodeAppDetail = function(aid,fields){
+	if(fields == undefined || fields == "")
+		fields = "*";
+	var sql = "select "+fields+" from node_app where aid=" + aid;
+	return new Promise(function(resolve,reject){
+    	mysql_func.doSqlCmdAsync(sql).then(function(res){
+    		resolve(res);
+		}).catch(function(err){
+			reject(err);
+		});		
+	});
+}
+
+var addNodeApp = function(){
+
+}
+
+var updateNodeApp = function(aid,update_data){
+
+}
 
 var export_func = {
-        'getNodeAppListAsync': getNodeAppList
+    'getNodeAppListAsync': getNodeAppList,
+    'getNodeAppDetailAsync': getNodeAppDetail,
+    'addNodeAppAsync': addNodeApp,
+    'updateNodeAppAsync': updateNodeApp
 };
+
 module.exports=export_func;
